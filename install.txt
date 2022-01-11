@@ -49,7 +49,7 @@ Die Installation des Modul MITS ADCELL Tracking ist in der aktuellen Shopversion
        und klicken sie dann auf der rechten Seite auf den Button Installieren. Das Modul wird nun komplett installiert.
 
     6. Im Systemmodul sind die Einstellungsmöglichkeiten erklärt.
-       Eventuell muss das Modul noch im Coockie Constent eingerichtet werden.
+       Eventuell muss das Modul noch im Cookie Constent eingerichtet werden.
 
     7. FERTIG!
 
