@@ -17,8 +17,8 @@
 
 $adcell_pid = (defined('MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID') && MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID != '') ? MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID : '<span style="color:red;"><i>X</i></span>';
 
-define('MODULE_MITS_ADCELL_TRACKING_TEXT_TITLE', 'MITS ADCELL Tracking <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (<a href="https://www.merz-it-service.de/" target="_blank">MerZ IT-SerVice</a>)</span></span>');
-define('MODULE_MITS_ADCELL_TRACKING_TEXT_DESCRIPTION', '
+define('MODULE_MITS_ADCELL_TRACKING_TITLE', 'MITS ADCELL Tracking <span style="white-space:nowrap;">&copy; by <span style="padding:2px;background:#ffe;color:#6a9;font-weight:bold;">Hetfield (<a href="https://www.merz-it-service.de/" target="_blank">MerZ IT-SerVice</a>)</span></span>');
+define('MODULE_MITS_ADCELL_TRACKING_DESCRIPTION', '
    <div> 
     <a href="https://www.merz-it-service.de/" target="_blank">
         <img src="' . DIR_WS_IMAGES . 'merz-it-service.png" border="0" alt="" style="display:block;max-width:100%;height:auto;" />
@@ -51,7 +51,7 @@ define('MODULE_MITS_ADCELL_TRACKING_COOKIE_CONSENT_PURPOSE_ID_DESC', 'Tragen Sie
   </li>
   <li>
     <strong>ADCELLvpid' . $adcell_pid . '</strong><br />
-    Dieser Cookie wird gesetzt nach dem Ausspielen eines ADCELL Werbemittels und enthält Informationen über Publisher, Werbemittel, SubID, Referrer und Zeitstempel. Das X im Cookie-Namen steht für die ProgrammID des Werbemittels. Die Gültigkeitsdauer des Cookies ist abhängig vom entsprechenden Programm.
+    Dieser Cookie wird gesetzt nach dem Ausspielen eines ADCELL Werbemittels und enth&auml;lt Informationen &uuml;ber Publisher, Werbemittel, SubID, Referrer und Zeitstempel. Das X im Cookie-Namen steht f&uuml;r die ProgrammID des Werbemittels. Die G&uuml;ltigkeitsdauer des Cookies ist abh&auml;ngig vom entsprechenden Programm.
   </li>
   <li>
     <strong>ADCELLjh' . $adcell_pid . '</strong><br />

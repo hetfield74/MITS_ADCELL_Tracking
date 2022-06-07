@@ -60,7 +60,7 @@ if (defined('MODULE_MITS_ADCELL_TRACKING_STATUS') && strtolower(MODULE_MITS_ADCE
       if (basename($PHP_SELF) == FILENAME_PRODUCT_INFO && (isset($_GET['products_id']) && $_GET['products_id'] != '') && (is_object($product) && $product->isProduct())) {
         $productIds = '';
         $data = $product->getAlsoPurchased();
-        if (count($data) > 0) {
+        if (is_array($data) && count($data) > 0) {
           for ($i = 0, $n = sizeof($data); $i < $n; $i++) {
             if ($i == 0) {
               $productIds = $data[$i]['PRODUCTS_ID'];
@@ -69,7 +69,6 @@ if (defined('MODULE_MITS_ADCELL_TRACKING_STATUS') && strtolower(MODULE_MITS_ADCE
             }
           }
         }
-
         ?>
         <script type="text/javascript" src="https://t.adcell.com/js/inlineretarget.js?method=product&pid=<?php echo $adcell_pid; ?>&productId=<?php echo $product->data['products_id']; ?>&productName=<?php echo urlencode($product->data['products_name']); ?>&categoryId=<?php echo $current_category_id; ?>&productIds=<?php echo $productIds; ?>&productSeparator=;" async<?php echo $adcell_oil; ?>></script>
         <?php
@@ -77,12 +76,13 @@ if (defined('MODULE_MITS_ADCELL_TRACKING_STATUS') && strtolower(MODULE_MITS_ADCE
 
       // Search Page
       if (basename($PHP_SELF) == FILENAME_ADVANCED_SEARCH_RESULT && (isset($_GET['keywords']) && $_GET['keywords'] != '') && (isset($module_content) && is_array($module_content))) {
-        for ($i = 0, $n = sizeof($module_content); $i < $n; $i++) {
-          if ($i == 0) {
-            $productIds = $module_content[$i]['PRODUCTS_ID'];
-          } else {
-            $productIds .= ';' . $module_content[$i]['PRODUCTS_ID'];
+        $count_module_content = sizeof($module_content);
+        if ($count_module_content > 0) {
+          $productIds = '';
+          foreach ($module_content as $key => $value) {
+            $productIds .= ';' . $module_content[$key]['PRODUCTS_ID'];
           }
+          $productIds = substr($productIds,1);
         }
         ?>
         <script type="text/javascript" src="https://t.adcell.com/js/inlineretarget.js?method=search&pid=<?php echo $adcell_pid; ?>&search=<?php echo $_GET['keywords']; ?>&productIds=<?php echo $productIds; ?>&productSeparator=;" async<?php echo $adcell_oil; ?>></script>
@@ -91,14 +91,15 @@ if (defined('MODULE_MITS_ADCELL_TRACKING_STATUS') && strtolower(MODULE_MITS_ADCE
 
       // Category Page
       if (basename($PHP_SELF) == FILENAME_DEFAULT && (isset($current_category_id) && $current_category_id != 0) && (isset($module_content) && is_array($module_content))) {
-        for ($i = 0, $n = sizeof($module_content); $i < $n; $i++) {
-          if ($i == 0) {
-            $productIds = $module_content[$i]['PRODUCTS_ID'];
-          } else {
-            $productIds .= ';' . $module_content[$i]['PRODUCTS_ID'];
+        $count_module_content = sizeof($module_content);
+        if ($count_module_content > 0) {
+          $productIds = '';
+          foreach ($module_content as $key => $value) {
+            $productIds .= ';' . $module_content[$key]['PRODUCTS_ID'];
           }
+          $productIds = substr($productIds,1);
         }
-        $categoryName = (isset($category['categories_name']) && !empty($category['categories_name'])) ? urlencode($category['name']) : '';
+        $categoryName = (isset($category['categories_name']) && !empty($category['categories_name'])) ? urlencode($category['categories_name']) : '';
         ?>
         <script type="text/javascript" src="https://t.adcell.com/js/inlineretarget.js?method=category&pid=<?php echo $adcell_pid; ?>&categoryName=<?php echo $categoryName; ?>&categoryId=<?php echo $current_category_id; ?>&productIds=<?php echo $productIds; ?>&productSeparator=;" async<?php echo $adcell_oil; ?>></script>
         <?php
@@ -106,15 +107,20 @@ if (defined('MODULE_MITS_ADCELL_TRACKING_STATUS') && strtolower(MODULE_MITS_ADCE
 
       // Basket:
       if (basename($PHP_SELF) == FILENAME_SHOPPING_CART && $_SESSION['cart']->count_contents() > 0 && isset($products) && is_array($products)) {
-        for ($i = 0, $n = sizeof($products); $i < $n; $i++) {
-          if ($i == 0) {
-            $productIds = xtc_get_prid($products[$i]['id']);
-            $ProductQuantities = $products[$i]['quantity'];
-          } else {
-            $productIds .= ';' . xtc_get_prid($products[$i]['id']);
-            $ProductQuantities .= ';' . $products[$i]['quantity'];
+        $count_products = sizeof($products);
+        if ($count_products > 0) {
+          $basketProductCount = 0;
+          $productIds = $ProductQuantities = '';
+          for ($i = 0, $n = $count_products; $i < $n; $i++) {
+            if ($i == 0) {
+              $productIds = xtc_get_prid($products[$i]['id']);
+              $ProductQuantities = $products[$i]['quantity'];
+            } else {
+              $productIds .= ';' . xtc_get_prid($products[$i]['id']);
+              $ProductQuantities .= ';' . $products[$i]['quantity'];
+            }
+            $basketProductCount += $products[$i]['quantity'];
           }
-          $basketProductCount += $products[$i]['quantity'];
         }
         if ($_SESSION['customers_status']['customers_status_show_price_tax'] == 0 && $_SESSION['customers_status']['customers_status_add_tax_ot'] == 1) {
           $basketTotal = number_format($_SESSION['cart']->show_total() - $_SESSION['cart']->show_tax(false), 2);
