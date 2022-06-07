@@ -24,42 +24,42 @@ define('MODULE_MITS_ADCELL_TRACKING_DESCRIPTION', '
         <img src="' . DIR_WS_IMAGES . 'merz-it-service.png" border="0" alt="" style="display:block;max-width:100%;height:auto;" />
     </a><br />    
     <div>    
-      <p>Mit diesem Modul k&ouml;nnen Sie das Affiliate Tracking der First Lead GmbH / ADCELL in die modified eCommerce Shopsoftware integrieren. </p>
-      <p>Bei Fragen, Problemen oder W&uuml;nschen zu diesem Modul oder auch zu anderen Anliegen rund um die modified eCommerce Shopsoftware nehmen Sie einfach Kontakt zu uns auf:</p> 
-      <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Kontaktseite auf MerZ-IT-SerVice.de</strong></a></div>
+      <p>With this module you can integrate the affiliate tracking of First Lead GmbH / Adcell into the modified eCommerce shop software. </p>
+      <p>If you have any questions, problems or wishes for this module or other concerns about the modified eCommerce shop software, simply contact us:</p> 
+      <div style="text-align:center;"><a style="background:#6a9;color:#444" target="_blank" href="https://www.merz-it-service.de/Kontakt.html" class="button" onclick="this.blur();">Contact page on merz-it-service.de</strong></a></div>
     </div>
   </div>
 ');
-define('MODULE_MITS_ADCELL_TRACKING_STATUS_TITLE', 'Modul aktivieren?');
-define('MODULE_MITS_ADCELL_TRACKING_STATUS_DESC', 'M&ouml;chten sie dieses Modul aktivieren?');
+define('MODULE_MITS_ADCELL_TRACKING_STATUS_TITLE', 'Activate module?');
+define('MODULE_MITS_ADCELL_TRACKING_STATUS_DESC', 'Would you like to activate this module?');
 define('MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID_TITLE', 'ProgrammID (ADCELL)');
-define('MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID_DESC', 'Tragen Sie hier die ProgrammID ein.');
+define('MODULE_MITS_ADCELL_TRACKING_PROGRAMM_ID_DESC', 'Enter the ProgrammID here.');
 define('MODULE_MITS_ADCELL_TRACKING_EVENT_ID_TITLE', 'EventID (ADCELL)');
-define('MODULE_MITS_ADCELL_TRACKING_EVENT_ID_DESC', 'Tragen Sie hier die EventID ein.');
-define('MODULE_MITS_ADCELL_TRACKING_RETARGETING_TITLE', 'Retargeting aktivieren?');
-define('MODULE_MITS_ADCELL_TRACKING_RETARGETING_DESC', 'Soll das Retargeting aktiviert werden?');
+define('MODULE_MITS_ADCELL_TRACKING_EVENT_ID_DESC', 'Enter the EventID here.');
+define('MODULE_MITS_ADCELL_TRACKING_RETARGETING_TITLE', 'Activate retargeting?');
+define('MODULE_MITS_ADCELL_TRACKING_RETARGETING_DESC', 'Should retargeting be activated?');
 define('MODULE_MITS_ADCELL_TRACKING_COOKIE_CONSENT_PURPOSE_ID_TITLE', 'PURPOSE-ID');
-define('MODULE_MITS_ADCELL_TRACKING_COOKIE_CONSENT_PURPOSE_ID_DESC', 'Tragen Sie hier die PURPOSE-ID vom Cookie Consent Modul ein, falls Sie dort ADCELL eingerichtet haben.<div style="margin-top:10px;padding:10px;background:#fff;border:1px solid #f00;"><strong style="font-size: 10px;">Cookies, die f&uuml;r das ADCELL-Tracking verwendet werden und in das Cookie Consent Modul eingetragen werden m&uuml;ssen:</strong>
+define('MODULE_MITS_ADCELL_TRACKING_COOKIE_CONSENT_PURPOSE_ID_DESC', 'Enter the Purpose ID from the Cookie Consent module here if you have set up Adcell.<div style="margin-top:10px;padding:10px;background:#fff;border:1px solid #f00;"><strong style="font-size: 10px;">Cookies that are used for adcelling tracking and have to be entered in the cookie consent module:</strong>
 <ul style="font-size:10px;">
   <li>
     <strong>ADCELLpid' . $adcell_pid . '</strong><br />
-    Dieser Cookie wird gesetzt nach dem Klick auf ein ADCELL Werbemittel und enth&auml;lt Informationen &uuml;ber Publisher, Werbemittel, SubID, Referrer und Zeitstempel. Das X im Cookie-Namen steht f&uuml;r die ProgrammID des Werbemittels. Die G&uuml;ltigkeitsdauer des Cookies ist abh&auml;ngig vom entsprechenden Programm.
+    This cookie is set after clicking on an adcel advertising medium and contains information about publishers, advertising material, subid, referrer and timeline. The X in the cookie name stands for the programid of the advertising material. The period of validity of the cookie depends on the corresponding program.
   </li>
   <li>
     <strong>ADCELLspid' . $adcell_pid . '</strong><br />
-    Dieser Cookie wird gesetzt nach dem Klick auf ein ADCELL Werbemittel und enth&auml;lt Informationen &uuml;ber Publisher, Werbemittel, SubID, Referrer und Zeitstempel. Das X im Cookie-Namen steht f&uuml;r die ProgrammID des Werbemittels. Der Cookie wird nach Beenden des Browsers gel&ouml;scht.
+    This cookie is set after clicking on an adcel advertising medium and contains information about publishers, advertising material, subid, referrer and timeline. The X in the cookie name stands for the programid of the advertising material. The cookie is deleted after the browser ends.
   </li>
   <li>
     <strong>ADCELLvpid' . $adcell_pid . '</strong><br />
-    Dieser Cookie wird gesetzt nach dem Ausspielen eines ADCELL Werbemittels und enth&auml;lt Informationen &uuml;ber Publisher, Werbemittel, SubID, Referrer und Zeitstempel. Das X im Cookie-Namen steht f&uuml;r die ProgrammID des Werbemittels. Die G&uuml;ltigkeitsdauer des Cookies ist abh&auml;ngig vom entsprechenden Programm.
+    This cookie is set after playing an adCell advertising medium and contains information about publishers, advertising material, subid, referrer and time temple. The X in the cookie name stands for the programid of the advertising material. The period of validity of the cookie depends on the corresponding program.
   </li>
   <li>
     <strong>ADCELLjh' . $adcell_pid . '</strong><br />
-    Dieser Cookie wird nach wiederholtem Ausspielen oder Klicken auf ein ADCELL Werbemittel gesetzt. Damit wird der Weg des Nutzers &uuml;ber die verschiedenen Publisher nachvollzogen. Das X im Cookie-Namen steht f&uuml;r die ProgrammID des Werbemittels.
+    This cookie is placed after repeated playing out or clicking on an adcel advertising material. This traces the user\'s path over the various publishers. The X in the cookie name stands for the programid of the advertising material.
   </li>
   <li>
     <strong>ADCELLnoTrack</strong><br />
-    Dieser Cookie wird gesetzt, wenn der Nutzer nicht getrackt werden m&ouml;chte. In Gegenwart des Cookies werden keine Cookies gesetzt, die au&szlig;erhalb des Surfens auf www.adcell.de gesetzt werden k&ouml;nnten. 
+    This cookie is set if the user does not want to be tracked. In the presence of the cookies, no cookies are set that could be set outside the surf at www.adcell.de. 
   </li>
 </ul>
 </div>');
